@@ -10,7 +10,6 @@ body{
 
 .container{
     position: relative;
-    height: 400px;
     width:100%;
     background-size: cover;
     color: #323232;
@@ -31,7 +30,6 @@ body{
 .what{
     font-weight: 700;
     color: #37474f;
-    height: 560px;
     font-size: 50px;
     margin-right: auto;
     margin-left: auto;
@@ -51,6 +49,7 @@ body{
 .con{
     display: flex;
     flex-flow: wrap;
+    height:500px;
 }
 .dislike{
     width:50%;
@@ -72,39 +71,78 @@ body{
     display: flex;
 }
 
-@media screen and (min-width: 0px) and (max-width: 480px) {
+.mash{
+    position: relative;
+    display: block;
+    width: 100%;
+    color: white;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2e2e2e;
+    text-align: center;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.facebook{
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 50px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
     .chose
     {
         font-size: 20px;
         display: none;
     }
 
-    /*.what{*/
-        /*font-weight: 500;*/
-        /*color: #37474f;*/
-        /*height: 360px;*/
-        /*font-size: 25px;*/
-        /*margin-right: auto;*/
-        /*margin-left: auto;*/
-        /*margin-top: 20px;*/
-        /*margin-bottom: 20px;*/
+    .what{
+        font-weight: 500;
+        color: #37474f;
+        font-size: 25px;
+        height: 30px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
 
-    /*}*/
-    /*.desc{*/
-        /*line-height: normal;*/
-        /*font-size: 20px;*/
-        /*margin-right: auto;*/
-        /*margin-left: auto;*/
-        /*margin-top: 20px;*/
-        /*margin-bottom: 20px;*/
-    /*}*/
+    }
+    .desc{
+        line-height: normal;
+        font-size: 20px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        height: 50px;
+    }
 
-    /*.left{*/
-        /*width:100%;*/
-    /*}*/
+    .left{
+        width:100%;
+    }
 
-    /*.right{*/
-        /*widht:100%;*/
-    /*}*/
+    .right{
+        widht:100%;
+    }
 
+    .con{
+        margin-top: 40px;
+        margin-bottom:20px;
+    }
+
+
+}
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+    .what{
+        font-size: 30px;
+        height: 40px;
+    }
 }

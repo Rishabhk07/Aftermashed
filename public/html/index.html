@@ -10,8 +10,27 @@
     <link rel="stylesheet" href="../css/custom.css">
     <script defer src="../mdl/material.min.js"></script>
     <script src="../js/jquery-3.1.1.js" ></script>
+    <script src="../js/custom.js"></script>
 </head>
-<body>
+<body>ç
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1320253381341248',
+            xfbml      : true,
+            version    : 'v2.6'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout-icon"><img src="peace.png"></div>
@@ -36,7 +55,7 @@
 
 
     <div class="mdl-layout__drawer ">
-        <span class="mdl-layout__title">Simple Layout</span>
+        <span class="mdl-layout__title">Mashed</span>
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="#">Mashup</a>
             <a class="mdl-navigation__link" href="#">Upcoming Events</a>
@@ -45,23 +64,33 @@
             <a class="mdl-navigation__link" href="#">Contact Us</a>
         </nav>
     </div>
-    <div class="con">
+    <div class="con disappear">
         <div class="container">
-            <p class="what left mdl-layout__title">What we do ?</p>
-            <p class="desc right mdl-layout__title">Just after any event, you either like it or dislike it  <br> We just provide the medium to do the same </p>
+            <p class="what left">What we do ?</p>
+            <p class="desc right">Just after any event, you either like it or dislike it  <br> We just provide the medium to do the same </p>
         </div>
     </div>
 
     <div class="con">
-        <div class="dislike flex">
-            <img class="ch" src="../assets/dislike.png">
-            <h1 class="ch chose">Dislike</h1>
+            <div class="dislike flex">
+                <img class="ch" src="../assets/dislike.png">
+                <h1 class="ch chose">Dislike</h1>
+            </div>
+            <div class="like flex">
+                <img class="ch" src="../assets/likes.png">
+                <h1 class="ch chose">Like</h1>
+            </div>
         </div>
-        <div class="like flex">
-            <img class="ch" src="../assets/likes.png">
-            <h1 class="ch chose">Like</h1>
+        <div class="center">
+            <button class="mdl-button mdl-js-button mdl-button--raised mash">Start Mashing</button>
         </div>
+
+    <div class="center facebook">
+        <a href="/auth/facebook"><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-600">Login with Facebook</button></a>
     </div>
-</div>
+    </div>
+
+
+
 </body>
 </html>
