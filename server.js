@@ -6,6 +6,8 @@ const app = express();
 const Parse = require('Parse/node');
 const path = require('path');
 
+var port = process.env.PORT || 3333;
+
 var passport = require('passport')
     , FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -36,6 +38,6 @@ app.use('/',(req, res)=> {
 });
 
 
-app.listen("3333" , ()=>{
+app.listen(port , ()=>{
     console.log("magic happens at 3333");
 });
