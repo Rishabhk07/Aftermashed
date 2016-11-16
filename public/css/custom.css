@@ -73,9 +73,10 @@ body{
 
 .mash{
     position: relative;
-    display: block;
+    display: inline-block;
     width: 100%;
     color: white;
+    overflow: auto;
     font-size: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
