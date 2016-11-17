@@ -5,16 +5,9 @@ const express = require('express');
 const app = express();
 const Parse = require('Parse/node');
 const path = require('path');
-// app.configure(function() {
-//     app.use(express.static('public'));
-//     // app.use(express.cookieParser());
-//     // app.use(express.bodyParser());
-//     // app.use(express.session({ secret: 'keyboard cat' }));
-//     app.use(passport.initialize());
-//     app.use(passport.session());
-//     // app.use(app.router);
-// });
-
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const  expressSession = require('express-session');
 
 
 var port = process.env.PORT || 3333;
@@ -22,8 +15,38 @@ var port = process.env.PORT || 3333;
 var passport = require('passport')
     , FacebookStrategy = require('passport-facebook').Strategy;
 
+    //
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(expressSession({ secret: 'anything' }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+// used to serialize the user for the session
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+// used to deserialize the user
+passport.deserializeUser(function(id, done) {
+    Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
+    Parse.serverURL = 'https://parseapi.back4app.com/';
+    var User = Parse.Object.extend("Users");
+    var query = new Parse.Query(User);
+        query.equalTo("objectId" , id);
+        query.find({
+            success: function (results) {
+                console.log("Successfully retrieved " + results.length);
+                // Do something with the returned Parse.Object values
+                    console.log("results is with id : " + (results[0].id));
+                    return done(null , results[0]);
+                }
+        });
+
+});
+
 
 passport.use(new FacebookStrategy({
         clientID: "1320253381341248",
@@ -35,14 +58,14 @@ passport.use(new FacebookStrategy({
     function(accessToken, refreshToken, profile, done) {
         Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
         Parse.serverURL = 'https://parseapi.back4app.com/';
-        var User = Parse.Object.extend("Test");
+        var User = Parse.Object.extend("Users");
         var query = new Parse.Query(User);
         if(profile.id != null) {
 
             var user = JSON.parse(JSON.stringify(profile));
 
             console.log(user);
-            query.equalTo("ObjectId", profile.id);
+            query.equalTo("ObjectId" , profile.id);
             query.find({
                 success: function (results) {
                     console.log("Successfully retrieved " + results.length);
@@ -51,12 +74,13 @@ passport.use(new FacebookStrategy({
                         console.log("leng == 0");
                         var classUser = Parse.Object.extend("Users");
                         var User = new classUser();
+                        console.log(profile.id + user.name.givenName + user.emails[0].value + accessToken);
                         User.set("ObjectId", profile.id);
                         User.set("name", user.name.givenName);
                         User.set("email", user.emails[0].value);
                         User.set("token", accessToken);
                         User.save(null, {
-                            success: function (user) {
+                            success: function (user ) {
                                 // Execute any logic that should take place after the object is saved.
                                 console.log("User created with id " + user.id);
                                 return done(null, user);
@@ -64,16 +88,14 @@ passport.use(new FacebookStrategy({
                             error: function (user, error) {
                                 // Execute any logic that should take place if the save fails.
                                 // error is a Parse.Error with an error code and message.
-                                console.log(error.message);
+                                console.log("saving error" + Parse.Error);
                                 return done(error.message);
                             }
                         });
                     }else if(results.length > 0){
                         console.log(results);
-                        return done(null , results);
+                        return done(null , results[0]);
                     }
-
-
                 },
                 error: function (error) {
                     console.log("Error: " + error.code + " " + error.message);
@@ -86,16 +108,21 @@ passport.use(new FacebookStrategy({
     }
 ));
 
+
+
 app.get('/auth/facebook', passport.authenticate('facebook' , {scope: ['email']}));
 
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook',
-        { successRedirect: '/',
-        failureRedirect: '/fail' }));
+        {   successRedirect: '/mashed',
+            failureRedirect: '/fail'
+        })
+);
 
 app.use('/login' , (req , res)=>{
-   if(req.user){
-       res.send("helloe");
+   // console.log(req.user.access_token);
+   if(req.isAuthenticated()){
+        res.send(req.user);
    }else{
        res.send("Bie");
    }
