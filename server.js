@@ -22,6 +22,7 @@ app.use(bodyParser());
 app.use(expressSession({ secret: 'anything' }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.set('view engine' , 'hbs');
 
 
 // used to serialize the user for the session
@@ -130,7 +131,10 @@ app.use('/login' , (req , res)=>{
 
 app.use('/fail' , (req , res)=>{res.send("Fail")});
 app.use('/callback' , (req , res)=>{res.send("callback")});
-app.use('/mashed' , (req , res)=>{res.send("mashed")});
+app.use('/mashed' , (req , res)=>{
+
+    res.render('mashed');
+});
 
 app.use('/save' , (req , res)=>{
     Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
