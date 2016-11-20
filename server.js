@@ -120,6 +120,10 @@ app.get('/auth/facebook/callback',
         })
 );
 
+
+
+
+
 app.use('/login' , (req , res)=>{
    // console.log(req.user.access_token);
    if(req.isAuthenticated()){
@@ -129,12 +133,20 @@ app.use('/login' , (req , res)=>{
    }
 });
 
+const isLogin = (req , res , next)=>{
+    if(req.isAuthenticated()){
+        next();
+    }else{
+        res.redirect('/');
+    }
+};
 app.use('/fail' , (req , res)=>{res.send("Fail")});
-app.use('/callback' , (req , res)=>{res.send("callback")});
-app.use('/mashed' , (req , res)=>{
 
+app.use('/mashed',  isLogin ,(req , res)=>{
     res.render('mashed');
 });
+
+
 
 app.use('/save' , (req , res)=>{
     Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
@@ -158,10 +170,11 @@ app.use('/save' , (req , res)=>{
 
 });
 
-app.use('/' , express.static(__dirname + "/public"));
+app.use('/newevent' , (req , res)=>{
+   res.render('createEvent');
+});
 
 app.use('/',(req, res)=> {
-
     res.sendFile(__dirname + "/public/html/index.html");
 });
 

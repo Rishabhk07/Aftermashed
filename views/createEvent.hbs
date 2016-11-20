@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="../mdl/icon?family=Material+Icons">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./mdl/material.min.css">
+    <link rel="stylesheet" href="./css/mashed.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <script defer src="./mdl/material.min.js"></script>
+    <script src="./js/jquery-3.1.1.js" ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/custom.js"></script>
+    <script src="./js/mashed.js"></script>
+
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout-icon"></div>
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout__title">
+              Mashed
+            </span>
+        </div>
+        <div class="mdl-layout__header-row">
+            <div class="docs-navigation__container">
+                <div class="docs-navigation mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="/mashed">Mashup</a>
+                    <a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>
+                    <a class="mdl-navigation__link" href="/newevent">New Event</a>
+                    <a class="mdl-navigation__link" href="/about">About</a>
+                    <a class="mdl-navigation__link" href="/contact">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="mdl-layout__drawer ">
+        <span class="mdl-layout__title">
+            <img src="" class="profile" >
+        </span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="#">Mashup</a>
+            <a class="mdl-navigation__link" href="#">Upcoming Events</a>
+            <a class="mdl-navigation__link" href="#">New Event</a>
+            <a class="mdl-navigation__link" href="#">About</a>
+            <a class="mdl-navigation__link" href="#">Contact Us</a>
+            <a class="mdl-navigation__link" href="/logout">Logout</a>
+        </nav>
+    </div>
+
+    <div class="flex create-event">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label event-title input-div" align="center">
+                <input class="mdl-textfield__input" type="text" id="event-title">
+                <label class="mdl-textfield__label" for="event-title" >Event Title</label>
+            </div>
+
+        <div class="mdl-textfield mdl-js-textfield event-title input-div">
+            <input class="mdl-textfield__input" type="text" id="datepicker">
+            <label class="mdl-textfield__label date-label" for="datepicker">Event Date</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input-div">
+        <textarea class="mdl-textfield__input" type="text" rows="4"
+            id="event-desc"></textarea>
+        <label class="mdl-textfield__label" for="event-desc">Event Description</label>
+        </div>
+
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label event-title input-div">
+        <input class="mdl-textfield__input" type="text" id="fb-url">
+        <label class="mdl-textfield__label" for="fb-url" >Event Facebook Url</label>
+        </div>
+
+
+
+
+       <a href="/newevent/save" ><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent input-div" >
+            Create Event
+        </button></a>
+    </div>
+
+</div>
+</body>
+</html>

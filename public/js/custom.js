@@ -14,8 +14,14 @@ $(function () {
 
     $('.mash').click(function () {
         console.log("Hello");
-        $('.disappear').hide(50);
-    })
+    });
+
+    $('#datepicker').focus(function () {
+
+        $('.date-label').hide(1)
+    });
+
+    $('#datepicker').datepicker();
 
 });
 

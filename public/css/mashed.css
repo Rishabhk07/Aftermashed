@@ -149,6 +149,16 @@ body{
     width: 40%;
 }
 
+.create-event{
+    margin-top: 10%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.input-div{
+    margin:auto;
+}
+
 @media screen and (min-width: 0px) and (max-width: 800px) {
     .chose
     {
