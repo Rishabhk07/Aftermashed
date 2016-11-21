@@ -5,10 +5,15 @@
     <title>Title</title>
     <!--<link rel="stylesheet" href="../mdl/icon?family=Material+Icons">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./mdl/material.min.css">
     <link rel="stylesheet" href="./css/mashed.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+
 
 
     <script defer src="./mdl/material.min.js"></script>
@@ -16,6 +21,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/custom.js"></script>
     <script src="./js/mashed.js"></script>
+    <script src="./js/dropzone.js"></script>
+
 
 </head>
 <body>
@@ -78,8 +85,16 @@
         <label class="mdl-textfield__label" for="fb-url" >Event Facebook Url</label>
         </div>
 
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label event-title input-div">
+            <input class="mdl-textfield__input" type="text" id="type">
+            <label class="mdl-textfield__label" for="type" >Event/hub/Other</label>
+        </div>
 
-
+        <!-- File input -->
+        <div class="mdl-file mdl-js-file mdl-file--floating-label">
+            <input type="file" name="avatar" id="avatar">
+            <label class="mdl-file__label" for="avatar">Avatar</label>
+        </div>
 
        <a href="/newevent/save" ><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent input-div" >
             Create Event

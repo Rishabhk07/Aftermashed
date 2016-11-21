@@ -3,42 +3,92 @@
  */
 const express = require('express');
 const route = express.Router();
-const Parse = require(' Parse/node');
+const Parse = require('Parse/node');
 
-let thisEvent = Parse.Object.event("Events");
+route.use('/' , (req , res)=>{
 
-route.use('/like' , (req , res)=>{
-let userId = req.body.id;
-let objectId = req.body.objectId;
-var query = new Parse.Query();
-query.get(objectId , {
-    success:(event)=>{
-        event.increment("likes");
-    },
-    error : (object , error)=>{
-
-    }
-})
-
-});
-
-route.use('/dislike' , (req , res)=>{
-    let userId = req.body.id;
+    let userId = req.user.id;
+    let vote = req.body.vote;
     let objectId = req.body.objectId;
 
-    let objectId = req.body.objectId;
-    var query = new Parse.Query();
+    console.log("Vote called");
+    console.log(userId);
+    console.log(vote);
+    console.log(objectId);
+
+
+    var Event = Parse.Object.extend("Events");
+    var query = new Parse.Query(Event);
     query.get(objectId , {
-        success:(event)=>{
-            event.increment("dislikes");
+        success: function(thisEvent) {
+            // The object was retrieved successfully.
+            // voting for current event
+            console.log(thisEvent);
+            if(vote == 1){
+                thisEvent.increment('Likes');
+
+            }else if(vote == 0){
+                thisEvent.increment('Dislikes');
+            }
+            thisEvent.save();
+            // retriving current user
+
+            var GameScore = Parse.Object.extend("Users");
+            var query = new Parse.Query(GameScore);
+            query.get(userId, {
+                success: function(user) {
+                    // The object was retrieved successfully.
+
+                    var relation = user.relation("Events_Voted");
+                    relation.add(thisEvent);
+                    user.save();
+
+
+                    relation.query().find({
+                        success: function(list) {
+                            // list contains the posts that the current user likes.
+                            var id = [];
+                            console.log(list[0].id);
+                            for(var i = 0 ; i < list.length ; i++){
+                                id.push(list[i].id);
+                            }
+                            console.log(id);
+
+                            var Event = Parse.Object.extend("Events");
+                            var query = new Parse.Query(Event);
+
+                                query.notContainedIn("objectId" , id);
+
+
+                            query.first({
+                                success: function(object) {
+                                 console.log( "event result : " + JSON.stringify(object));
+                                    res.send(object)
+                                },
+                                error: function(error) {
+                                    console.log("Error: " + error.code + " " + error.message);
+                                }
+                            });
+                        }
+                    });
+                },
+                error: function(object, error) {
+                    // The object was not retrieved successfully.
+                    // error is a Parse.Error with an error code and message.
+                    console.log("user cant be retrieved");
+                }
+            });
         },
-        error : (object , error)=>{
+        error: function(object, error) {
+            // The object was not retrieved successfully.
+            // error is a Parse.Error with an error code and message.
 
+            console.log("Vote cannot be Counted right now" + error.message);
         }
-    })
-});
-
-route.use('/change' , (req , res)=>{
+    });
 
 });
 
+
+
+module.exports = route;

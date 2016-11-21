@@ -24,6 +24,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.set('view engine' , 'hbs');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 // used to serialize the user for the session
 passport.serializeUser(function(user, done) {
@@ -120,7 +123,9 @@ app.get('/auth/facebook/callback',
         })
 );
 
+const vote = require('./routes/compare');
 
+app.post('/vote' , vote);
 
 
 
@@ -140,37 +145,58 @@ const isLogin = (req , res , next)=>{
         res.redirect('/');
     }
 };
-app.use('/fail' , (req , res)=>{res.send("Fail")});
+
 
 app.use('/mashed',  isLogin ,(req , res)=>{
-    res.render('mashed');
-});
+    var user = Parse.Object.extend("Users");
+    var query = new Parse.Query(user);
+    query.get(req.user.id , {
+       success:(user)=>{
 
+           var relation = user.relation("Events_Voted");
+            // var query = Parse.Query("Events_Voted");
+           relation.query().find({
+               success: (list)=>{
+                    console.log(list);
+                       // list contains the posts that the current user likes.
+                       var id = [];
+                       console.log(list[0].id);
+                       for(var i = 0 ; i < list.length ; i++){
+                           id.push(list[i].id);
+                       }
+                       console.log(id);
 
+                       var Event = Parse.Object.extend("Events");
+                       var query = new Parse.Query(Event);
 
-app.use('/save' , (req , res)=>{
-    Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
-    Parse.serverURL = 'https://parseapi.back4app.com/';
-    var classUser = Parse.Object.extend("Test");
-    var User = new classUser();
-    User.set("Drupal","my gand");
-    User.save(null, {
-        success: function (user) {
-            // Execute any logic that should take place after the object is saved.
-            console.log("User created with id " + user);
-            res.send("saved");
-        },
-        error: function (user, error) {
-            // Execute any logic that should take place if the save fails.
-            // error is a Parse.Error with an error code and message.
-            console.log(error.id + " " + error.message);
-            res.send(error.message);
+                        query.notContainedIn("objectId" , id);
+
+                       query.first({
+                           success: function(object) {
+                               console.log( "event result : " + JSON.stringify(object));
+                               res.render('mashed' , JSON.parse(JSON.stringify(object)));
+                           },
+                           error: function(error) {
+                               console.log("Error: " + error.code + " " + error.message);
+                           }
+                       });
+
+               },
+               error: (myobject , error)=>{
+
+               }
+           })
+       },
+        error: (myobject , error)=>{
+            console.log("Could Find User in mashed");
         }
     });
 
 });
 
+
 app.use('/newevent' , (req , res)=>{
+
    res.render('createEvent');
 });
 
@@ -178,6 +204,7 @@ app.use('/',(req, res)=> {
     res.sendFile(__dirname + "/public/html/index.html");
 });
 
+// app.use((req , res)=>{res.send("Fail")});
 
 app.listen(port , ()=>{
     console.log("magic happens at 3333");

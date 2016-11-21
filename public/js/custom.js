@@ -12,16 +12,39 @@ $(function () {
 
     login_check();
 
-    $('.mash').click(function () {
-        console.log("Hello");
+    var like = $('.like');
+    var dislike = $('.dislike');
+    var card = $('.card');
+
+
+    like.click(function () {
+        like.attr("disabled" , "disabled");
+        $.post('/vote' , {
+          vote : 1,
+            objectId: card.data('id')
+        }, function (object) {
+            console.log(object);
+            like.attr(disabled);
+            card.data('id' , object.objectId);
+            console.log(object.objectId);
+        })
     });
 
-    $('#datepicker').focus(function () {
+    dislike.click(function () {
+        dislike.attr("disabled" , "disabled");
 
-        $('.date-label').hide(1)
-    });
+        $.post('/vote' , {
+            vote : 0,
+            objectId: card.data('id')
+        }, function (object) {
+            console.log(object);
+            dislike.removeAttr(disabled);
+            console.log(object.objectId);
+            card.data('id' , object.objectId);
 
-    $('#datepicker').datepicker();
+
+        })
+    })
 
 });
 

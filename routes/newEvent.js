@@ -14,11 +14,22 @@ route.use('/save'  ,(req , res)=>{
     let name = req.body.name;
     let likes = 0;
     let dislikes = 0;
+    let desc = req.body.desc;
+    let fb = req.body.fb;
+    let type = req.body.type;
+    let date = req.body.date;
+    let days = req.body.days;
     var Event = Parse.Object.extend("Events");
     var thisEvent = new Event();
     thisEvent.set("Name" , name);
     thisEvent.set("likes" , 0);
     thisEvent.set("dislikes" , 0);
+    thisEvent.set("description" , desc);
+    thisEvent.set("fb_url" , fb);
+    thisEvent.set("days" , days);
+    thisEvent.set("Date" , date);
+    thisEvent.set("category" , type);
+
     thisEvent.save(
         null , {
             success: (event)=>{

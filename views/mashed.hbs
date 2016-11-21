@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -51,50 +52,38 @@
             <a class="mdl-navigation__link" href="/logout">Logout</a>
         </nav>
     </div>
-    <!--<div class="con disappear">-->
-        <!--<div class="container">-->
-            <!--<p class="what left">What we do ?</p>-->
-            <!--<p class="desc right">Just after any event, you either like it or dislike it  <br> We just provide the medium to do the same </p>-->
-        <!--</div>-->
-    <!--</div>-->
 
-    <div class="con">
 
-            <div class="dislike mdl-js-button mdl-button--raised flex">
+     <div class="con">
+
+          <div class="dislike mdl-js-button mdl-button--raised flex">
+
                 <img class="ch" src="../assets/dislike.png">
-                <!--<h1 class="ch chose">Dislike</h1>-->
             </div>
 
-        <!--Card start -->
+
+         <!--Card start -->
         <div class="set-width">
-            <div class="mdl-card card flex mdl-shadow--4dp">
+            <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{objectId}} >
                 <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">Drupal Camp Delhi 2016</h2>
+                    <h2 class="mdl-card__title-text">{{Name}}</h2>
                 </div>
                 <div class="mdl-card__media">
-                    <img src="https://scontent.fdel1-1.fna.fbcdn.net/v/t1.0-9/14671233_1114060548677278_2004840028866686155_n.png?oh=431e7307eef4d452716a42f67b43dce1&oe=58B624D2" class="event-img">
+                    <img src="{{ImageUrl}}" class="event-img">
                 </div>
                 <div class="mdl-card__supporting-text">
-                    Drupal camp was a drupal event organised by some ass holes who didnt even cared about any volunteers or anybody, wpeople who lack mutual respect.
+                    {{description}}
                 </div>
                 <div class="mdl-card__actions">
-                    <a href="" height = "150px" width="150px">Facebook Page</a>
+                    <a href="{{fb_url}}" height = "150px" width="150px" target="_blank">FB Page</a>
                 </div>
             </div>
         </div>
         <!--card finish -->
         <div class="like mdl-js-button mdl-button--raised flex">
             <img class="ch" src="../assets/likes.png">
-            <!--<h1 class="ch chose">Like</h1>-->
         </div>
     </div>
-    <!--<div class="center">-->
-        <!--<button class="mdl-button mdl-js-button mdl-button--raised mash">Start Mashing</button>-->
-    <!--</div>-->
-
-    <!--<div class="center facebook">-->
-        <!--<a href="/auth/facebook"><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-600">Login with Facebook</button></a>-->
-    <!--</div>-->
 </div>
 
 
