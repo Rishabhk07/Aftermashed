@@ -52,6 +52,7 @@ route.use('/' , (req , res)=>{
                             for(var i = 0 ; i < list.length ; i++){
                                 id.push(list[i].id);
                             }
+                            id.push(objectId);
                             console.log(id);
 
                             var Event = Parse.Object.extend("Events");
