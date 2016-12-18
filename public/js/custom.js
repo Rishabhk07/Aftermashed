@@ -14,8 +14,10 @@ var add_data = function (object) {
 
 
     if(object.objectId == undefined) {
-            $('.set-width').html("yay , You have voted for all the events");
-            console.log("undefined called");
+            // $('.set-width').html("yay , You have voted for all the events");
+            // console.log("undefined called");
+        $('.mdl-card__title-text').html("No More evets");
+        $('.mdl-card__supporting-text').html("Congrulations You have voted fo all the current evets in college see you soon after some more events ");
     }else{
         $('.mdl-card__title-text').html(object.Name);
         $('.event-img').prop("src", object.ImageUrl);
