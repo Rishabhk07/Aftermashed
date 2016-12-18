@@ -55,7 +55,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new FacebookStrategy({
         clientID: "1320253381341248",
         clientSecret: '9ca8ba88d2bdeba99320d6985b05a2cd' ,
-       callbackURL: "http://localhost:3333/auth/facebook/callback",
+       callbackURL: "/auth/facebook/callback",
         profileFields: ['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'updated_time', 'verified'],
         enableProof: true
     },
@@ -127,8 +127,6 @@ const vote = require('./routes/compare');
 
 app.post('/vote' , vote);
 
-
-
 app.use('/login' , (req , res)=>{
    // console.log(req.user.access_token);
    if(req.isAuthenticated()){
@@ -174,7 +172,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
                        query.first({
                            success: function(object) {
                                console.log( "event result : " + JSON.stringify(object));
-                               res.render('mashed' , JSON.parse(JSON.stringify(object)));
+                               res.render('mashed' , JSON.parse(JSON.stringify(object))  );
                            },
                            error: function(error) {
                                console.log("Error: " + error.code + " " + error.message);
