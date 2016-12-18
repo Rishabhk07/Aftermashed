@@ -3,7 +3,7 @@
  */
 const express = require('express');
 const app = express();
-const Parse = require('Parse/node');
+const Parse = require('parse/node');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');

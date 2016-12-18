@@ -3,7 +3,7 @@
  */
 const express = require('express');
 const route = express.Router();
-const Parse = require('Parse/node');
+const Parse = require('parse/node');
 
 route.use('/' , (req , res)=>{
 
