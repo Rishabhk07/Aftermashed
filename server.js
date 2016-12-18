@@ -171,7 +171,8 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
                        query.first({
                            success: function(object) {
-                               console.log( "event result : " + JSON.stringify(object));
+                               console.log( "event result : " + typeof object);
+
                                res.render('mashed' , JSON.parse(JSON.stringify(object))  );
                            },
                            error: function(error) {
