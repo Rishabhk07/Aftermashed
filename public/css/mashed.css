@@ -8,6 +8,28 @@ body{
     background-image: url("../html/header.jpg");
 }
 
+#profile-pic{
+    height:100px;
+    width: 100px;
+    border-radius: 50px;
+    margin: 40px;
+}
+
+.dp{
+
+    float: right;
+    margin-left: 70%;
+    margin-top: 5%;
+}
+
+#dp{
+
+    height:200px;
+    width: 200px;
+    border-radius: 100px;
+    margin: 10px;
+
+}
 .container{
     position: relative;
     width:100%;
@@ -209,6 +231,9 @@ body{
     }
     .set-width{
         width: 100%;
+    }
+    #profile-pic{
+        display: none;
     }
 }
 
