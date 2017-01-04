@@ -183,7 +183,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
 
 
-                                    res.render('mashed', object : JSON.parse(JSON.stringify(object)));
+                                    res.render('mashed', {object : JSON.parse(JSON.stringify(object))} );
 
                            },
                            error: function(error) {
