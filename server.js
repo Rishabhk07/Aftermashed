@@ -180,7 +180,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
                                console.log( "event result : " + JSON.stringify(object));
 
                                if(object typeof undefined){
-                                 res.sendFile
+                                console.log("object type undefiend");
                                }
 
                                     res.render('mashed', JSON.parse(JSON.stringify(object)));
