@@ -73,13 +73,13 @@
          <!--Card start -->
         <div class="set-width">
           {{#if object}}
-            <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{object.objectId}} >
+            <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{objectId}} >
               <!-- {{else}}
               <div class="mdl-card card flex mdl-shadow--4dp" data-id = ""> -->
               {{/if}}
                 <div class="mdl-card__title">
                   {{#if name}}
-                    <h2 class="mdl-card__title-text">{{object.Name}}</h2>
+                    <h2 class="mdl-card__title-text">{{Name}}</h2>
                     <!-- {{else}}
                     <h2 class="mdl-card__title-text">No more data</h2> -->
                     {{/if}}
@@ -93,14 +93,14 @@
                 </div>
                 <div class="mdl-card__supporting-text">
                   {{#if description}}
-                    {{object.description}}
+                    {{description}}
                     <!-- {{else}}
                     "Sorry No more data for rating" -->
                     {{/if}}
                 </div>
                 <div class="mdl-card__actions">
                   {{#if fb_url}}
-                    <a href="{{object.fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
+                    <a href="{{fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
                     <!-- {{else}}
                     <a href=""></a> -->
                     {{/if}}
