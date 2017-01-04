@@ -179,6 +179,10 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
                                console.log( "event result : " + JSON.stringify(object));
 
+                               if(object typeof undefined){
+                                 res.sendFile
+                               }
+
                                     res.render('mashed', JSON.parse(JSON.stringify(object)));
 
                            },
