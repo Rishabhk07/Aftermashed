@@ -72,19 +72,28 @@
 
          <!--Card start -->
         <div class="set-width">
-
+          {{#if objectId}}
             <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{objectId}} >
+              {{/if}}
                 <div class="mdl-card__title">
+                  {{#if name}}
                     <h2 class="mdl-card__title-text">{{Name}}</h2>
+                    {{/if}}
                 </div>
                 <div class="mdl-card__media">
+                  {{#if imageUrl}}
                     <img src="{{ImageUrl}}" class="event-img">
+                    {{/if}}
                 </div>
                 <div class="mdl-card__supporting-text">
+                  {{#if description}}
                     {{description}}
+                    {{/if}}
                 </div>
                 <div class="mdl-card__actions">
+                  {{#if fb_url}}
                     <a href="{{fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
+                    {{/if}}
                 </div>
             </div>
         </div>

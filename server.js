@@ -176,6 +176,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
                        query.first({
                            success: function(object) {
+
                                console.log( "event result : " + JSON.stringify(object));
 
                                     res.render('mashed', JSON.parse(JSON.stringify(object)));
@@ -184,11 +185,14 @@ app.use('/mashed',  isLogin ,(req , res)=>{
                            error: function(error) {
                                console.log("Error: " + error.code + " " + error.message);
 
+
                            }
                        });
 
                },
                error: (myobject , error)=>{
+
+                 console.log("could not find any list of events left to rate");
 
                }
            })
