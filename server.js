@@ -167,7 +167,9 @@ app.use('/mashed',  isLogin ,(req , res)=>{
                        for(var i = 0 ; i < list.length ; i++){
                            id.push(list[i].id);
                        }
+
                        console.log(id);
+
 
                        var Event = Parse.Object.extend("Events");
                        var query = new Parse.Query(Event);
@@ -181,7 +183,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
 
 
-                                    res.render('mashed', JSON.parse(JSON.stringify(object)));
+                                    res.render('mashed', object : JSON.parse(JSON.stringify(object)));
 
                            },
                            error: function(error) {
