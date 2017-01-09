@@ -170,13 +170,17 @@ body{
     text-align: center;
 }
 
+.margin{
+    margin: 10px;
+}
+
 .event-img{
     height: 40%;
     width: 40%;
 }
 
 .create-event{
-    margin-top: 10%;
+    margin-top: 5%;
     flex-direction: column;
     text-align: center;
 }
@@ -184,7 +188,6 @@ body{
 .input-div{
     margin:auto;
 }
-
 @media screen and (min-width: 0px) and (max-width: 800px) {
     .chose
     {

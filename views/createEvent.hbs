@@ -22,6 +22,7 @@
     <script src="./js/custom.js"></script>
     <script src="./js/mashed.js"></script>
     <script src="./js/dropzone.js"></script>
+    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 
 
 </head>
@@ -89,18 +90,22 @@
             <input class="mdl-textfield__input" type="text" id="type">
             <label class="mdl-textfield__label" for="type" >Event/hub/Other</label>
         </div>
-
-        <!-- File input -->
-        <div class="mdl-file mdl-js-file mdl-file--floating-label">
-            <input type="file" name="avatar" id="avatar">
-            <label class="mdl-file__label" for="avatar">Avatar</label>
+        <div class="mdl-button mdl-js-button margin">
+        <input type="filepicker" data-fp-apikey="A0MM1eOllSAyTeOaRG2aRz"
+               onchange="saveform(event.fpfile.url)">
         </div>
 
        <a href="/newevent/save" ><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent input-div" >
             Create Event
         </button></a>
+
     </div>
 
 </div>
+<script>
+   function saveform(url){
+        console.log(url);
+    }
+</script>
 </body>
 </html>
