@@ -6,6 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./mdl/material.min.css">
+    <link rel="stylesheet" href="./css/rating.css">
 </head>
 <body>
 
@@ -37,7 +40,7 @@
         </div>
 
     </header>
-</div>
+
 
 
 <div class="mdl-layout__drawer ">
@@ -56,10 +59,31 @@
     </nav>
 </div>
 
-<div class="flex">
+<div class="con">
 
+    {{#each allEvents}}
+            <div class="set-width">
+                <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{objectId}} >
+                <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">{{Name}}</h2>
+                </div>
+                    <div class="mdl-card__media">
+                        <img src="{{ImageUrl}}" class="event-img">
+                    </div>
+
+                <div class="mdl-card__supporting-text">
+                        {{description}}
+                </div>
+            </div>
+            </div>
+    {{/each}}
+    </div>
 </div>
 
 
+    <script defer src="./mdl/material.min.js"></script>
+    <script src="./js/jquery-3.1.1.js" ></script>
+    <script src="./js/custom.js"></script>
+    <script src="./js/mashed.js"></script>
 </body>
 </html>

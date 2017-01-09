@@ -224,7 +224,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
 });
 
-app.use('/rating',(req , res)=>{
+app.use('/rating', isLogin , (req , res)=>{
 
     var events = Parse.Object.extend("Events");
     var query = new Parse.Query(events);
@@ -232,7 +232,10 @@ app.use('/rating',(req , res)=>{
         success: function(results) {
             console.log("Successfully retrieved " + results.length);
             // Do something with the returned Parse.Object values
-            res.send(results);
+            // console.log(JSON.stringify(JSON.parse(results)));
+
+            res.render('rating', {allEvents : JSON.parse(JSON.stringify(results))} );
+            // res.send(results);
         },
         error: function(error) {
             console.log("Error: " + error.code + " " + error.message);
@@ -248,6 +251,7 @@ app.use('/newevent' , (req , res)=>{
 });
 
 app.use('/',(req, res)=> {
+    console.log();
     res.sendFile(__dirname + "/public/html/index.html");
 });
 

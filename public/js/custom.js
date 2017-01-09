@@ -18,8 +18,12 @@ var add_data = function (object) {
 
 
     if(object.objectId == undefined) {
-            $('.set-width').html("yay , You have voted for all the events");
-            console.log("undefined called");
+        $('.mdl-card__title-text').html("Sorry No Events Left ");
+        $('.event-img').hide();
+        $('.mdl-card__supporting-text').html("Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab");
+        $('#url').hide();
+        card.data('id' , "");
+        card.show(100);
         // $('.mdl-card__title-text').html("No More evets");
         // $('.mdl-card__supporting-text').html("Congrulations You have voted fo all the current evets in college see you soon after some more events ");
     }else{
