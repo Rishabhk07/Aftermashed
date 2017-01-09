@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // used to serialize the user for the session
 passport.serializeUser(function(user, done) {
+    console.log("user id in serializer is " + user.id);
     done(null, user.id);
 });
 
@@ -160,21 +161,29 @@ app.use('/mashed',  isLogin ,(req , res)=>{
             // var query = Parse.Query("Events_Voted");
            relation.query().find({
                success: (list)=>{
+                   console.log("inside mashed route");
                     console.log(list);
                        // list contains the posts that the current user likes.
-                       var id = [];
+                        var id = [];
+                        // id.push(Mo8ec0dSwO);
+
+
+                   if(list.length  > 0 ) {
+                       console.log("inside lis[0] find");
+
                        console.log(list[0].id);
-                       for(var i = 0 ; i < list.length ; i++){
+                       for (var i = 0; i < list.length; i++) {
                            id.push(list[i].id);
+                           console.log("id pushed: " + id.toString());
                        }
+                   }
 
-                       console.log(id);
-
+                       // console.log(id.toString());
 
                        var Event = Parse.Object.extend("Events");
                        var query = new Parse.Query(Event);
-
-                        query.notContainedIn("objectId" , id);
+                        console.log("search for events started");
+                        query.notContainedIn("objectId", id);
 
                        query.first({
                            success: function(object) {
