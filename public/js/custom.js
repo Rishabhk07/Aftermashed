@@ -8,8 +8,13 @@ login_check = function(){
   $.post('/login' , {} , function (ans) {
       console.log(ans);
       console.log(ans.ObjectId);
-      $('#profile-pic').attr("src" , 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250' );
-      $('#dp').attr("src" , 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250' );
+      if(ans == "Bie"){
+          $('#profile-pic').hide();
+          $('#dp').hide();
+      }else {
+          $('#profile-pic').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
+          $('#dp').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
+      }
   })
 
 };

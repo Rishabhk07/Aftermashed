@@ -244,15 +244,25 @@ app.use('/rating', isLogin , (req , res)=>{
 
 });
 
-
+app.get('/about' , (req , res)=>{
+    res.render('about');
+});
 app.use('/newevent' , (req , res)=>{
 
    res.render('createEvent');
 });
 
+app.use('/logout',(req , res)=>{
+   req.logout();
+    res.redirect('/')
+});
+
 app.use('/',(req, res)=> {
-    console.log();
-    res.sendFile(__dirname + "/public/html/index.html");
+    if(req.isAuthenticated()){
+        res.redirect('/mashed');
+    }else {
+        res.sendFile(__dirname + "/public/html/index.html");
+    }
 });
 
 
