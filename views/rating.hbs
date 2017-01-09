@@ -75,8 +75,16 @@
                         {{description}}
                 </div>
                     <div class="mdl-card__actions mdl-card--border">
-                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge={{Dislikes}}>thumb_down</div>
-                        <div class="material-icons mdl-badge mdl-badge--overlap" data-badge={{Likes}}>thumb_up</div>
+
+                        <span class="mdl-chip mdl-chip--contact">
+                             <span class="material-icons mdl-chip__contact mdl-color--accent mdl-color-text--white">thumb_down</span>
+                            <span class="mdl-chip__text">{{Dislikes}}  Dislikes</span>
+                        </span>
+                        <span class="mdl-chip mdl-chip--contact">
+                             <span class="material-icons mdl-chip__contact mdl-color--indigo mdl-color-text--white">thumb_up</span>
+                            <span class="mdl-chip__text">{{Likes}} Likes</span>
+                        </span>
+                        <!--<div class="material-icons mdl-badge mdl-badge--overlap" data-badge={{Likes}}>thumb_up</div>-->
                     </div>
             </div>
             </div>
