@@ -59,6 +59,7 @@ var like = $('.like');
 var dislike = $('.dislike');
 var card = $('.card');
 
+
 $(function () {
 
     login_check();
@@ -66,6 +67,10 @@ $(function () {
     like = $('.like');
     dislike = $('.dislike');
     card = $('.card');
+    var startMash = $('.start-mash');
+    var facebook = $('.facebook');
+
+    facebook.hide();
 
 
     like.click(function () {
@@ -101,7 +106,13 @@ $(function () {
             add_data(object);
 
         })
+    });
+
+    startMash.click(function () {
+        facebook.show(100);
     })
+
+
 
 });
 
