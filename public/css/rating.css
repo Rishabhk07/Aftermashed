@@ -87,6 +87,14 @@ body{
     margin:auto;
 }
 
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
 @media screen and (min-width: 0px) and (max-width: 800px) {
     .chose
     {

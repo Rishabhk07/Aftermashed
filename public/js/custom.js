@@ -62,6 +62,8 @@ var card = $('.card');
 
 $(function () {
 
+    $('body').removeClass("preload");
+
     login_check();
 
     like = $('.like');
