@@ -8,6 +8,13 @@ body{
     background-image: url("../html/header.jpg");
 }
 
+.preload{
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
 #profile-pic{
     height:100px;
     width: 100px;
@@ -87,13 +94,7 @@ body{
     margin:auto;
 }
 
-.preload * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-}
+
 
 @media screen and (min-width: 0px) and (max-width: 800px) {
     .chose

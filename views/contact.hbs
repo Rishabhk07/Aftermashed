@@ -60,14 +60,53 @@
     </div>
 
     <!--content of about page start-->
+    <div class="set-width">
+        {{#if objectId}}
+        <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{objectId}} >
+        {{else}}
+        <div class="mdl-card card flex mdl-shadow--4dp" data-id = "" >
+        {{/if}}
 
-    <div class="mdl-grid mdl-grid--no-spacing">
-            <div class="container">
-                <p class="what mdl-cell mdl-cell--12-col">About After Mashed !!</p>
-                <p class="small mdl-cell mdl-cell--12-col">The Motivation behind this medium is that we attend many events in out college organised by different hubs, some by our college but after that event we cannot express how it went(anonymously offcourse),
-                    Hence we provide a medium to "Like" or "Dislike" all the events happening in college.</p>
-            </div>
+
+        <div class="mdl-card__title">
+            {{#if Name}}
+                <h2 class="mdl-card__title-text">{{Name}}</h2>
+            {{else}}
+                <h2 class="mdl-card__title-text">Sorry No Events Left</h2>
+            {{/if}}
+
         </div>
+        {{#if ImageUrl}}
+            <div class="mdl-card__media">
+
+                <img src="{{ImageUrl}}" class="event-img">
+
+
+
+            </div>
+        {{/if}}
+        <div class="mdl-card__supporting-text">
+            {{#if description}}
+                {{description}}
+            {{else}}
+                "Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab"
+            {{/if}}
+
+
+        </div>
+        {{#if fb_url}}
+            <div class="mdl-card__actions">
+
+
+                <a href="{{fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
+
+
+            </div>
+        {{/if}}
+    </div>
+    </div>
+
+    <!---->
 </div>
 </body>
 </html>

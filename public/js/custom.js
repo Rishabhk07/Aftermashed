@@ -3,11 +3,9 @@
  */
 
 
-
+var canVote = true;
 login_check = function(){
   $.post('/login' , {} , function (ans) {
-      console.log(ans);
-      console.log(ans.ObjectId);
       if(ans == "Bie"){
           $('#profile-pic').hide();
           $('#dp').hide();
@@ -29,6 +27,7 @@ var add_data = function (object) {
         $('#url').hide();
         card.data('id' , "");
         card.show(100);
+        canVote = false;
         // $('.mdl-card__title-text').html("No More evets");
         // $('.mdl-card__supporting-text').html("Congrulations You have voted fo all the current evets in college see you soon after some more events ");
     }else{
@@ -62,7 +61,7 @@ var card = $('.card');
 
 $(function () {
 
-    $('body').removeClass("preload");
+
 
     login_check();
 
@@ -76,38 +75,42 @@ $(function () {
 
 
     like.click(function () {
-        like.prop("disabled" , true);
-        snackbar(1);
-        card.hide(1000);
-        $.post('/vote' , {
-          vote : 1,
-            objectId: card.data('id')
+        if(canVote == true){
+            like.prop("disabled" , true);
+            snackbar(1);
+            card.hide(1000);
+            $.post('/vote' , {
+              vote : 1,
+                objectId: card.data('id')
 
-        }, function (object) {
-            console.log(object);
-            like.prop("disabled" , false);
-            card.data('id' , object.objectId);
-            console.log(object.objectId);
-            add_data(object);
+            }, function (object) {
+                console.log(object);
+                like.prop("disabled" , false);
+                card.data('id' , object.objectId);
+                console.log(object.objectId);
+                add_data(object);
 
 
-        })
+            })
+        }
     });
 
     dislike.click(function () {
-        dislike.prop("disabled" , true);
-        card.hide(1000);
-        snackbar(0);
-        $.post('/vote' , {
-            vote : 0,
-            objectId: card.data('id')
-        }, function (object) {
-            console.log(object);
-            dislike.prop("disabled" , false);
-            console.log(object.objectId);
-            add_data(object);
+        if(canVote == true) {
+            dislike.prop("disabled", true);
+            card.hide(1000);
+            snackbar(0);
+            $.post('/vote', {
+                vote: 0,
+                objectId: card.data('id')
+            }, function (object) {
+                console.log(object);
+                dislike.prop("disabled", false);
+                console.log(object.objectId);
+                add_data(object);
 
-        })
+            })
+        }
     });
 
     startMash.click(function () {
