@@ -8,11 +8,12 @@
     <title>About</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./mdl/material.min.css">
-    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/contact.css">
     <script defer src="./mdl/material.min.js"></script>
     <script src="./js/jquery-3.1.1.js" ></script>
     <script src="./js/custom.js"></script>
     <script src="./js/mashed.js"></script>
+    <script src="https://use.fontawesome.com/f908b86fb9.js"></script>
 </head>
 <body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -60,52 +61,51 @@
     </div>
 
     <!--content of about page start-->
-    <div class="set-width">
-        {{#if objectId}}
-        <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{objectId}} >
-        {{else}}
-        <div class="mdl-card card flex mdl-shadow--4dp" data-id = "" >
-        {{/if}}
+    <div class="set-width center mdl-grid">
 
-
+        <div class="mdl-card card flex mdl-shadow--4dp mdl-cell mdl-cell--12-col mdl-typography--text-center" data-id = "" >
         <div class="mdl-card__title">
-            {{#if Name}}
-                <h2 class="mdl-card__title-text">{{Name}}</h2>
-            {{else}}
-                <h2 class="mdl-card__title-text">Sorry No Events Left</h2>
-            {{/if}}
-
+                <h2 class="mdl-card__title-text">Contact the Founder</h2>
         </div>
-        {{#if ImageUrl}}
+
             <div class="mdl-card__media">
 
-                <img src="{{ImageUrl}}" class="event-img">
-
-
+                <img src="https://scontent.fdel1-1.fna.fbcdn.net/v/t31.0-8/15168914_10207919044359648_6868862733075357753_o.jpg?oh=a79b05bc9470daebcd51721103aed282&oe=5911044F" class="event-img">
 
             </div>
-        {{/if}}
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect name" href="#" >
+                Rishabh Khanna
+            </a>
+        </div>
         <div class="mdl-card__supporting-text">
-            {{#if description}}
-                {{description}}
-            {{else}}
-                "Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab"
-            {{/if}}
-
+            <div >
+            <a href="mailto:rishabhkhanna777@gmail.com?Subject=After%20Mash%20Contact" target="_top">rishabhkhanna777@gmail.com</a>
+            </div>
+            <div class="icon">
+            <!--facebook link-->
+                <a href="https://www.facebook.com/rishabh.khanna.18" class="link-icon" >
+                    <i class="fa fa-facebook-official fa-4x" aria-hidden="true" ></i>
+                    </a>
+                <!--github project link-->
+                <a href="https://github.com/Rishabhk07/judge-event" class="link-icon">
+                <i class="fa fa-github fa-4x" aria-hidden="true" ></i>
+                    </a>
+                <!--linkedin link-->
+                <a href="https://in.linkedin.com/in/rishabh-khanna-670bb0127" class="link-icon">
+                <i class="fa fa-linkedin fa-4x" aria-hidden="true" ></i>
+                </a>
+                <!--twitter link-->
+                <a href="https://twitter.com/Rishabh_K127" class="link-icon">
+                    <i class="fa fa-twitter-square fa-4x" aria-hidden="true" ></i>
+                    </a>
+            </div>
 
         </div>
-        {{#if fb_url}}
-            <div class="mdl-card__actions">
 
-
-                <a href="{{fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
-
-
-            </div>
-        {{/if}}
-    </div>
     </div>
 
+</div>
     <!---->
 </div>
 </body>
