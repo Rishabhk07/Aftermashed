@@ -9,9 +9,11 @@ login_check = function(){
       if(ans == "Bie"){
           $('#profile-pic').hide();
           $('#dp').hide();
+          $('.logout').hide();
       }else {
           $('#profile-pic').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
           $('#dp').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
+          $('.logout').show();
       }
   })
 
@@ -23,7 +25,7 @@ var add_data = function (object) {
     if(object.objectId == undefined) {
         $('.mdl-card__title-text').html("Sorry No Events Left ");
         $('.event-img').hide();
-        $('.mdl-card__supporting-text').html("Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab");
+        $('.mdl-card__supporting-text').html("Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab, you can also suggest events to add at aftermashed@gmail.com");
         $('#url').hide();
         card.data('id' , "");
         card.show(100);
