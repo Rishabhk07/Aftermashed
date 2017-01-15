@@ -91,14 +91,27 @@ body{
 .center{
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .facebook{
     display: flex;
     flex-flow: row;
     margin-bottom: 50px;
+    margin-top: -10em;
 }
+
+/*.above{*/
+    /*position: relative;*/
+    /*margin: -2em;*/
+    /*display: flex;*/
+    /*flex-flow: wrap;*/
+/*}*/
+
+.start-mash{
+    position: relative;
+    margin-top: -10em;
+}
+
 
 @media screen and (min-width: 0px) and (max-width: 800px) {
     .chose
