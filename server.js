@@ -233,7 +233,7 @@ app.use('/rating', isLogin , (req , res)=>{
             console.log("Successfully retrieved " + results.length);
             // Do something with the returned Parse.Object values
             // console.log(JSON.stringify(JSON.parse(results)));
-            console.log("Date of the event is " + results[0].da)
+            console.log("Date of the event is " + (JSON.stringify(results[0])));
 
             res.render('rating', {allEvents : JSON.parse(JSON.stringify(results))} );
             // res.send(results);
