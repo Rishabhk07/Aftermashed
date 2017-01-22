@@ -80,7 +80,7 @@ $(function () {
         if(canVote == true){
             like.prop("disabled" , true);
             snackbar(1);
-            card.hide(1000);
+            card.hide(100);
             $.post('/vote' , {
               vote : 1,
                 objectId: card.data('id')
@@ -100,7 +100,7 @@ $(function () {
     dislike.click(function () {
         if(canVote == true) {
             dislike.prop("disabled", true);
-            card.hide(1000);
+            card.hide(100);
             snackbar(0);
             $.post('/vote', {
                 vote: 0,
