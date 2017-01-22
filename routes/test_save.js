@@ -6,7 +6,7 @@ app.use('/save' , (req , res)=>{
     Parse.serverURL = 'https://parseapi.back4app.com/';
     var classUser = Parse.Object.extend("Test");
     var User = new classUser();
-    User.set("Drupal","my gand");
+    User.set("Ass","my gand");
     User.save(null, {
         success: function (user) {
             // Execute any logic that should take place after the object is saved.

@@ -128,7 +128,7 @@ const vote = require('./routes/compare');
 
 app.post('/vote' , vote);
 
-app.use('/fail' , (req , res)=>{
+app.get('/fail' , (req , res)=>{
    res.send("Error in Loggin in" + error.message)
 });
 
@@ -151,7 +151,7 @@ const isLogin = (req , res , next)=>{
 };
 
 
-app.use('/mashed',  isLogin ,(req , res)=>{
+app.get('/mashed',  isLogin ,(req , res)=>{
     var user = Parse.Object.extend("Users");
     var query = new Parse.Query(user);
     query.get(req.user.id , {
@@ -224,7 +224,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
 });
 
-app.use('/rating', isLogin , (req , res)=>{
+app.get('/rating', isLogin , (req , res)=>{
 
     var events = Parse.Object.extend("Events");
     var query = new Parse.Query(events);
@@ -245,6 +245,25 @@ app.use('/rating', isLogin , (req , res)=>{
 
 });
 
+app.get('/upcoming', (req , res)=>{
+    var events = Parse.Object.extend("Upcoming");
+    var query = new Parse.Query(events);
+    query.find({
+        success: function(results) {
+            console.log("Successfully retrieved " + results.length);
+            // Do something with the returned Parse.Object values
+            // console.log(JSON.stringify(JSON.parse(results)));
+            console.log("Date of the event is " + (JSON.stringify(results[0])));
+
+            res.render('upcoming', {allEvents : JSON.parse(JSON.stringify(results))} );
+            // res.send(results);
+        },
+        error: function(error) {
+            console.log("Error: " + error.code + " " + error.message);
+        }
+    });
+});
+
 app.get('/contact' , (req, res)=>{
    res.render('contact');
 });
@@ -252,12 +271,12 @@ app.get('/contact' , (req, res)=>{
 app.get('/about' , (req , res)=>{
     res.render('about');
 });
-app.use('/newevent' , (req , res)=>{
+app.get('/newevent' , (req , res)=>{
 
    res.render('createEvent');
 });
 
-app.use('/logout',(req , res)=>{
+app.get('/logout',(req , res)=>{
    req.logout();
     res.redirect('/')
 });
