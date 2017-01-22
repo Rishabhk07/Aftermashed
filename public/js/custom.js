@@ -38,7 +38,7 @@ var add_data = function (object) {
         $('.mdl-card__supporting-text').html(object.description);
         $('#url').prop("href", object.fb_url);
         card.data('id' , object.objectId);
-        card.show(1000);
+        card.show(100);
     }
 
 };
