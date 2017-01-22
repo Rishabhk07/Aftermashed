@@ -199,6 +199,7 @@ app.get('/mashed',  isLogin ,(req , res)=>{
                                         fb_url: ""
                                     }
                                }
+                                res.type('text/html');
                                     res.render('mashed', JSON.parse(JSON.stringify(object)) );
 
                            },
@@ -288,10 +289,6 @@ app.use('/',(req, res)=> {
         res.sendFile(__dirname + "/public/html/index.html");
     }
 });
-
-
-
-
 
 // app.use((req , res)=>{res.send("Fail")});
 
