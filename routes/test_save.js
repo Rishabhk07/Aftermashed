@@ -2,8 +2,8 @@
  * Created by rishabhkhanna on 21/11/16.
  */
 app.use('/save' , (req , res)=>{
-    Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
-    Parse.serverURL = 'https://parseapi.back4app.com/';
+    Parse.initialize("aftermash");
+    Parse.serverURL = 'http://aftermashed.com:1337/parse';
     var classUser = Parse.Object.extend("Test");
     var User = new classUser();
     User.set("Ass","my gand");

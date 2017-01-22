@@ -36,8 +36,8 @@ passport.serializeUser(function(user, done) {
 
 // used to deserialize the user
 passport.deserializeUser(function(id, done) {
-    Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
-    Parse.serverURL = 'https://parseapi.back4app.com/';
+    Parse.initialize("aftermash");
+    Parse.serverURL = 'http://aftermashed.com:1337/parse';
     var User = Parse.Object.extend("Users");
     var query = new Parse.Query(User);
         query.equalTo("objectId" , id);
@@ -61,8 +61,8 @@ passport.use(new FacebookStrategy({
         enableProof: true
     },
     function(accessToken, refreshToken, profile, done) {
-        Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
-        Parse.serverURL = 'https://parseapi.back4app.com/';
+        Parse.initialize("aftermash");
+        Parse.serverURL = 'http://aftermashed.com:1337/parse';
         var User = Parse.Object.extend("Users");
         var query = new Parse.Query(User);
         if(profile.id != null) {
