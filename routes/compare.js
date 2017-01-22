@@ -48,12 +48,12 @@ route.use('/' , (req , res)=>{
                         success: function(list) {
                             // list contains the posts that the current user likes.
                             var id = [];
-                            console.log(list[0].id);
+                            // console.log(list[0].id);
                             for(var i = 0 ; i < list.length ; i++){
                                 id.push(list[i].id);
                             }
                             id.push(objectId);
-                            console.log(id);
+                            // console.log(id);
 
                             var Event = Parse.Object.extend("Events");
                             var query = new Parse.Query(Event);
