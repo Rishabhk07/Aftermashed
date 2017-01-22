@@ -25,10 +25,11 @@ var add_data = function (object) {
     if(object.objectId == undefined) {
         $('.mdl-card__title-text').html("Sorry No Events Left ");
         $('.event-img').hide();
-        $('.mdl-card__supporting-text').html("Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab, you can also suggest events to add at aftermashed@gmail.com");
+        $('.mdl-card__supporting-text').html("Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab, you can also suggest events to add at" +
+            " <a href='mailto:aftermashed@gmail.com?Subject=After%20Mash%20Contact' target='_top'>aftermashed@gmail.com</a>");
         $('#url').hide();
         card.data('id' , "");
-        card.show(100);
+        card.show(200);
         canVote = false;
         // $('.mdl-card__title-text').html("No More evets");
         // $('.mdl-card__supporting-text').html("Congrulations You have voted fo all the current evets in college see you soon after some more events ");
@@ -38,7 +39,7 @@ var add_data = function (object) {
         $('.mdl-card__supporting-text').html(object.description);
         $('#url').prop("href", object.fb_url);
         card.data('id' , object.objectId);
-        card.show(100);
+        card.show(200);
     }
 
 };
@@ -80,7 +81,7 @@ $(function () {
         if(canVote == true){
             like.prop("disabled" , true);
             snackbar(1);
-            card.hide(100);
+            card.hide(200);
             $.post('/vote' , {
               vote : 1,
                 objectId: card.data('id')
@@ -100,7 +101,7 @@ $(function () {
     dislike.click(function () {
         if(canVote == true) {
             dislike.prop("disabled", true);
-            card.hide(100);
+            card.hide(200);
             snackbar(0);
             $.post('/vote', {
                 vote: 0,
