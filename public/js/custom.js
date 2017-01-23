@@ -31,6 +31,7 @@ var add_data = function (object) {
         card.data('id' , "");
         card.show(100);
         canVote = false;
+        $('.mobile').hide();
         // $('.mdl-card__title-text').html("No More evets");
         // $('.mdl-card__supporting-text').html("Congrulations You have voted fo all the current evets in college see you soon after some more events ");
     }else{
@@ -64,9 +65,6 @@ var card = $('.card');
 $(function () {
 
 
-
-    login_check();
-
     like = $('.like');
     dislike = $('.dislike');
     card = $('.card');
@@ -74,6 +72,7 @@ $(function () {
     var facebook = $('.facebook');
 
     facebook.hide();
+    login_check();
 
 
     like.click(function () {
@@ -116,8 +115,65 @@ $(function () {
     });
 
     startMash.click(function () {
+        facebook.removeAttr("hidden");
         facebook.show(100);
-    })
+    });
+
+    function likeEvent() {
+        if(canVote == true){
+            like.prop("disabled" , true);
+            snackbar(1);
+            card.hide(100);
+            $.post('/vote' , {
+                vote : 1,
+                objectId: card.data('id')
+
+            }, function (object) {
+                console.log(object);
+                like.prop("disabled" , false);
+                card.data('id' , object.objectId);
+                console.log(object.objectId);
+                add_data(object);
+
+
+            })
+        }
+    }
+
+    function dislikeEvent() {
+        if(canVote == true) {
+            dislike.prop("disabled", true);
+            card.hide(100);
+            snackbar(0);
+            $.post('/vote', {
+                vote: 0,
+                objectId: card.data('id')
+            }, function (object) {
+                console.log(object);
+                dislike.prop("disabled", false);
+                console.log(object.objectId);
+                add_data(object);
+
+            })
+        }
+    }
+
+    var width = $(window).width();
+    if(width < 450) {
+        $('.mobile').removeAttr("hidden");
+
+        like.hide();
+        dislike.hide();
+
+        $('.mobile-like').click(function () {
+            likeEvent();
+        });
+        $('.mobile-dislike').click(function () {
+            dislikeEvent();
+        })
+
+    }
+
 
 
 

@@ -271,7 +271,19 @@ body{
     }
 }
 
+@media screen and (min-width: 0px) and (max-width: 450px){
+    .card{
+        height: 400px;
+        width:300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .con{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 
 /*Key frame transistion starts here */
