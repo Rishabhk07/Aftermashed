@@ -29,7 +29,7 @@ var add_data = function (object) {
             " <a href='mailto:aftermashed@gmail.com?Subject=After%20Mash%20Contact' target='_top'>aftermashed@gmail.com</a>");
         $('#url').hide();
         card.data('id' , "");
-        card.show(200);
+        card.show(100);
         canVote = false;
         // $('.mdl-card__title-text').html("No More evets");
         // $('.mdl-card__supporting-text').html("Congrulations You have voted fo all the current evets in college see you soon after some more events ");
@@ -39,7 +39,7 @@ var add_data = function (object) {
         $('.mdl-card__supporting-text').html(object.description);
         $('#url').prop("href", object.fb_url);
         card.data('id' , object.objectId);
-        card.show(200);
+        card.show(100);
     }
 
 };
@@ -81,7 +81,7 @@ $(function () {
         if(canVote == true){
             like.prop("disabled" , true);
             snackbar(1);
-            card.hide(200);
+            card.hide(100);
             $.post('/vote' , {
               vote : 1,
                 objectId: card.data('id')
@@ -101,7 +101,7 @@ $(function () {
     dislike.click(function () {
         if(canVote == true) {
             dislike.prop("disabled", true);
-            card.hide(200);
+            card.hide(100);
             snackbar(0);
             $.post('/vote', {
                 vote: 0,
