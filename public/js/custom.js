@@ -61,46 +61,6 @@ var like = $('.like');
 var dislike = $('.dislike');
 var card = $('.card');
 
-function likeEvent(){
-    if(canVote == true){
-        like.prop("disabled" , true);
-        snackbar(1);
-        card.hide(100);
-        $.post('/vote' , {
-            vote : 1,
-            objectId: card.data('id')
-
-        }, function (object) {
-            console.log(object);
-            like.prop("disabled" , false);
-            card.data('id' , object.objectId);
-            console.log(object.objectId);
-            add_data(object);
-
-
-        })
-    }
-}
-
-function dislikeEvent(){
-    if(canVote == true) {
-        dislike.prop("disabled", true);
-        card.hide(100);
-        snackbar(0);
-        $.post('/vote', {
-            vote: 0,
-            objectId: card.data('id')
-        }, function (object) {
-            console.log(object);
-            dislike.prop("disabled", false);
-            console.log(object.objectId);
-            add_data(object);
-
-        })
-    }
-}
-
-
 $(function () {
 
 
@@ -114,6 +74,8 @@ $(function () {
     var facebook = $('.facebook');
 
     facebook.hide();
+
+
     like.click(function () {
         if(canVote == true){
             like.prop("disabled" , true);
