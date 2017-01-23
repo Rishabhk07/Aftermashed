@@ -267,10 +267,39 @@ body{
 @media screen and (min-width: 0px) and (max-width: 600px){
     .card{
         height: 400px;
-        width:190px;
+        width:200px;
     }
 }
 
+@media screen and (min-width: 0px) and (max-width: 400px){
+    .card{
+        height: 350px;
+        width:150px;
+        margin-left:2px;
+        margin-right: 2px;
+    }
+
+    .ch{
+        height: 80px;
+    }
+
+}
+
+@media screen and (min-width: 0px) and (max-width: 250px){
+    .card{
+        height: 350px;
+        width:120px;
+    }
+
+    .like{
+
+    }
+
+    .ch{
+        height: 50px;
+    }
+
+}
 
 /*Key frame transistion starts here */
 
