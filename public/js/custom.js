@@ -5,7 +5,6 @@
 
 var canVote = true;
 login_check = function(){
-
   $.post('/login' , {} , function (ans) {
       if(ans == "Bie"){
           $('#profile-pic').hide();
@@ -73,7 +72,7 @@ $(function () {
     var facebook = $('.facebook');
 
     facebook.hide();
-    // login_check();
+    login_check();
 
 
     like.click(function () {
@@ -106,7 +105,7 @@ $(function () {
                 vote: 0,
                 objectId: card.data('id')
             }, function (object) {
-                console.log(object);
+                // console.log(object);
                 dislike.prop("disabled", false);
                 console.log(object.objectId);
                 add_data(object);
@@ -130,7 +129,7 @@ $(function () {
                 objectId: card.data('id')
 
             }, function (object) {
-                console.log(object);
+                // console.log(object);
                 like.prop("disabled" , false);
                 card.data('id' , object.objectId);
                 console.log(object.objectId);
@@ -174,6 +173,10 @@ $(function () {
         })
 
     }
+
+
+
+
 
 });
 
