@@ -4,17 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/public/html/index.html" line="75" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="512f3d09-fc92-4008-9fd9-6492bd7733ba" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/index.html" afterPath="$PROJECT_DIR$/public/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/custom.js" afterPath="$PROJECT_DIR$/public/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about.hbs" afterPath="$PROJECT_DIR$/views/about.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact.hbs" afterPath="$PROJECT_DIR$/views/contact.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/createEvent.hbs" afterPath="$PROJECT_DIR$/views/createEvent.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/mashed.hbs" afterPath="$PROJECT_DIR$/views/mashed.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/rating.hbs" afterPath="$PROJECT_DIR$/views/rating.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/upcoming.hbs" afterPath="$PROJECT_DIR$/views/upcoming.hbs" />
-    </list>
+    <list default="true" id="512f3d09-fc92-4008-9fd9-6492bd7733ba" name="Default" comment="" />
     <ignored path="DrupalMyAss.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -61,7 +51,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="2088">
               <caret line="87" column="35" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
               <folding />
             </state>
@@ -121,7 +111,7 @@
       <file leaf-file-name="custom.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
+            <state relative-caret-position="2736">
               <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
               <folding>
                 <element signature="e#0#48#0" expanded="false" />
@@ -473,12 +463,12 @@
       <workItem from="1482076552212" duration="11166000" />
       <workItem from="1482136677082" duration="4173000" />
       <workItem from="1483779727517" duration="32117000" />
-      <workItem from="1484204991513" duration="51636000" />
+      <workItem from="1484204991513" duration="51804000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209839000" />
+    <option name="totallyTimeSpent" value="210007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -906,7 +896,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
+        <state relative-caret-position="2088">
           <caret line="87" column="35" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
           <folding />
         </state>
@@ -914,7 +904,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="2736">
           <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
