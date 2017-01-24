@@ -246,7 +246,7 @@ app.get('/rating', isLogin , (req , res)=>{
 
 });
 
-app.get('/upcoming', isLogin ,(req , res)=>{
+app.get('/upcoming', isLogin, (req , res)=>{
     var events = Parse.Object.extend("Upcoming");
     var query = new Parse.Query(events);
     query.find({

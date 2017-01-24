@@ -5,6 +5,7 @@
 
 var canVote = true;
 login_check = function(){
+
   $.post('/login' , {} , function (ans) {
       if(ans == "Bie"){
           $('#profile-pic').hide();
@@ -72,7 +73,7 @@ $(function () {
     var facebook = $('.facebook');
 
     facebook.hide();
-    // login_check();
+    login_check();
 
 
     like.click(function () {
