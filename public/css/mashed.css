@@ -78,24 +78,24 @@ body{
     width:50%;
     height:400px;
     background-color: #E90974;
-    /*animation-name: left;*/
-    /*animation-duration: 1s;*/
-    /*transition: 1s;*/
-    /*float: right;*/
-    /*animation-iteration-count: 1;*/
-    /*animation-fill-mode: forwards;*/
+    animation-name: left;
+    animation-duration: 1s;
+    transition: 1s;
+    float: right;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     margin-top: 10%;
 }
 .like{
     width:50%;
     height:400px;
     background-color: #191E80;
-    /*animation-name: left;*/
-    /*animation-duration: 1s;*/
-    /*transition: 1s;*/
-    /*float: left;*/
-    /*animation-iteration-count: 1;*/
-    /*animation-fill-mode: forwards;*/
+    animation-name: left;
+    animation-duration: 1s;
+    transition: 1s;
+    float: left;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     margin-top: 10%;
 }
 
@@ -103,11 +103,11 @@ body{
 
     margin: auto;
     color: white;
-    /*animation-name: center;*/
-    /*animation-duration: 1s;*/
-    /*transition: 1s;*/
-    /*animation-iteration-count: 1;*/
-    /*animation-fill-mode: forwards;*/
+    animation-name: center;
+    animation-duration: 1s;
+    transition: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .flex{
@@ -145,11 +145,11 @@ body{
 }
 
 .chose{
-    /*animation-name: hide;*/
-    /*animation-duration: 1s;*/
-    /*transition: 1s;*/
-    /*animation-iteration-count: 1;*/
-    /*animation-fill-mode: forwards;*/
+    animation-name: hide;
+    animation-duration: 1s;
+    transition: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .card{
@@ -162,11 +162,11 @@ body{
     width: 40%;
     margin: 5%;
     height: auto;
-    /*animation-name: visible;*/
-    /*animation-duration: 1s;*/
-    /*transition: 1s;*/
-    /*animation-iteration-count: 1;*/
-    /*animation-fill-mode: forwards;*/
+    animation-name: visible;
+    animation-duration: 1s;
+    transition: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     text-align: center;
 }
 
