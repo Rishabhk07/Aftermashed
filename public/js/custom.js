@@ -73,7 +73,7 @@ $(function () {
     var facebook = $('.facebook');
 
     facebook.hide();
-    login_check();
+    // login_check();
 
 
     like.click(function () {
