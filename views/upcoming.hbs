@@ -100,6 +100,14 @@
                     <div class="mdl-card__supporting-text">
                         {{description}}
                     </div>
+
+                    {{#if fb_url}}
+                        <div class="mdl-card__actions">
+
+                            <a href="{{fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
+
+                        </div>
+                    {{/if}}
                 </div>
             </div>
         {{/each}}
