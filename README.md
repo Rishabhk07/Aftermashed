@@ -1,5 +1,5 @@
 # AfterMashed
-A website where you can "Like" or "Dislik" any event happening in Colleges.
+A website where you can "Like" or "Dislike" any event happening in Colleges.
 website is live at - [aftermashed.com](aftermashed.com)
 ##Motivation
 We attend many events in any College, 
