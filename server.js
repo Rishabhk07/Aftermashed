@@ -129,7 +129,10 @@ const vote = require('./routes/compare');
 app.post('/vote' , vote);
 
 app.get('/fail' , (req , res)=>{
-   res.send("Error in Loggin in" + error.message)
+
+    res.redirect('/');
+   // res.send("Error in Loggin in" + error.message)
+
 });
 
 app.use('/login' , (req , res)=>{
