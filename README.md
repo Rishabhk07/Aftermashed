@@ -18,6 +18,14 @@ workshops organised by different College Hubs but we never get to express how it
 * Self hosted [Parse](https://parseplatform.github.io/) server - for Database
 * [Digital Ocean](www.digitalocean.com) - Hosting Server
 
+##ScreenShots
+
+![landing-page](https://github.com/Rishabhk07/judge-event/blob/master/screenshots/Screen%20Shot%202017-02-24%20at%207.59.48%20PM.png)
+![login](https://github.com/Rishabhk07/judge-event/blob/master/screenshots/Screen%20Shot%202017-02-24%20at%207.59.52%20PM.png)
+![mashing-page](https://github.com/Rishabhk07/judge-event/blob/master/screenshots/Screen%20Shot%202017-02-24%20at%208.01.14%20PM.png)
+![Events-page](https://github.com/Rishabhk07/judge-event/blob/master/screenshots/Screen%20Shot%202017-02-24%20at%208.01.19%20PM.png)
+![about-page](https://github.com/Rishabhk07/judge-event/blob/master/screenshots/Screen%20Shot%202017-02-24%20at%208.01.26%20PM.png)
+
 
 ##Author
 ###Rishabh Khanna
