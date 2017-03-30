@@ -39,8 +39,8 @@ workshops organised by different College Hubs but we never get to express how it
 ![about-page](https://github.com/Rishabhk07/judge-event/blob/master/screenshots/Screen%20Shot%202017-02-24%20at%208.01.26%20PM.png)
 
 
-##Author
-###Rishabh Khanna
+## Author
+### Rishabh Khanna
 * [LinkedIn](https://in.linkedin.com/in/rishabh-khanna-670bb0127)
 * [twitter](https://twitter.com/Rishabh_K127)
 
