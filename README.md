@@ -2,11 +2,11 @@
 A website where you can "Like" or "Dislike" any event happening in Colleges.
 website is live at - [aftermashed.com](http://aftermashed.com)
 
-##Motivation
+## Motivation
 We attend many events in any College, 
 workshops organised by different College Hubs but we never get to express how it went weather people "Liked" or "Disliked" these events(anonymously).Hence to fill this gap [AfterMashed](aftermashed.com) was born
 
-##Technologies Used
+## Technologies Used
 
 * HTML/CSS/Javascript based frontend
 * Material Design
@@ -18,7 +18,7 @@ workshops organised by different College Hubs but we never get to express how it
 * Self hosted [Parse](https://parseplatform.github.io/) server - for Database
 * [Digital Ocean](www.digitalocean.com) - Hosting Server
 
-##ScreenShots
+## ScreenShots
 
 ![landing-page](https://github.com/Rishabhk07/judge-event/blob/master/screenshots/Screen%20Shot%202017-02-24%20at%207.59.48%20PM.png)
 
