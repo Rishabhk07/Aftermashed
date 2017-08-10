@@ -231,16 +231,26 @@ body{
 
 
     .dislike{
-        width: 50%;
+        width: 25%;
+        height:100px;
     }
     .like{
-        width:50%;
+        width:25%;
+        height: 100px;
     }
     .set-width{
         width: 100%;
     }
     #profile-pic{
         display: none;
+    }
+
+    .card{
+        height: 400px;
+        width:250px;
+    }
+    .ch{
+        height: 100px;
     }
 }
 
@@ -253,6 +263,29 @@ body{
 }
 
 
+
+@media screen and (min-width: 0px) and (max-width: 600px){
+    .card{
+        height: 400px;
+        width:200px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 450px){
+    .card{
+        height: 400px;
+        width:300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .con{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
 /*Key frame transistion starts here */
 
 
@@ -262,10 +295,6 @@ body{
         height: 200px;
         top: 50%;
         left: 10px;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
 
@@ -274,10 +303,6 @@ body{
         height: 200px;
         top: 50%;
         left: 200px;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
 }
@@ -287,20 +312,12 @@ body{
         opacity: 1;
         display: block;
         visibility: inherit;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
     100%{
         opacity: 0;
         display: none;
         height: 0;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
 
@@ -309,19 +326,11 @@ body{
 @keyframes center {
     0% {
         align-items: inherit;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
 
     100%{
         align-items: center;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
 }
@@ -331,20 +340,12 @@ body{
         opacity: 0;
         width:0%;
         margin: 0;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
     100%{
         opacity: 1;
         width: 40%;
         margin: 5%;
-        -webkit-transition: ease-out;
-        -moz-transition: ease-out;
-        -ms-transition: ease-out;
-        -o-transition: ease-out;
         transition: ease-out;
     }
 }

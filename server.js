@@ -36,8 +36,8 @@ passport.serializeUser(function(user, done) {
 
 // used to deserialize the user
 passport.deserializeUser(function(id, done) {
-    Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
-    Parse.serverURL = 'https://parseapi.back4app.com/';
+    Parse.initialize("aftermash");
+    Parse.serverURL = 'http://aftermashed.com:1337/parse';
     var User = Parse.Object.extend("Users");
     var query = new Parse.Query(User);
         query.equalTo("objectId" , id);
@@ -61,8 +61,8 @@ passport.use(new FacebookStrategy({
         enableProof: true
     },
     function(accessToken, refreshToken, profile, done) {
-        Parse.initialize("ucfS6neahiGB0BOd1aAfV7HxQTye5K0U4r40N1O3" , "4igpUls0v3KRQI2o4dhNx8uTWUduMcyUuxQqsYSH");
-        Parse.serverURL = 'https://parseapi.back4app.com/';
+        Parse.initialize("aftermash");
+        Parse.serverURL = 'http://aftermashed.com:1337/parse';
         var User = Parse.Object.extend("Users");
         var query = new Parse.Query(User);
         if(profile.id != null) {
@@ -128,8 +128,11 @@ const vote = require('./routes/compare');
 
 app.post('/vote' , vote);
 
-app.use('/fail' , (req , res)=>{
-   res.send("Error in Loggin in" + error.message)
+app.get('/fail' , (req , res)=>{
+
+    res.redirect('/');
+   // res.send("Error in Loggin in" + error.message)
+
 });
 
 app.use('/login' , (req , res)=>{
@@ -151,7 +154,7 @@ const isLogin = (req , res , next)=>{
 };
 
 
-app.use('/mashed',  isLogin ,(req , res)=>{
+app.get('/mashed',  isLogin ,(req , res)=>{
     var user = Parse.Object.extend("Users");
     var query = new Parse.Query(user);
     query.get(req.user.id , {
@@ -199,6 +202,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
                                         fb_url: ""
                                     }
                                }
+                                res.type('text/html');
                                     res.render('mashed', JSON.parse(JSON.stringify(object)) );
 
                            },
@@ -224,7 +228,7 @@ app.use('/mashed',  isLogin ,(req , res)=>{
 
 });
 
-app.use('/rating', isLogin , (req , res)=>{
+app.get('/rating', isLogin , (req , res)=>{
 
     var events = Parse.Object.extend("Events");
     var query = new Parse.Query(events);
@@ -245,6 +249,25 @@ app.use('/rating', isLogin , (req , res)=>{
 
 });
 
+app.get('/upcoming', isLogin, (req , res)=>{
+    var events = Parse.Object.extend("Upcoming");
+    var query = new Parse.Query(events);
+    query.find({
+        success: function(results) {
+            console.log("Successfully retrieved " + results.length);
+            // Do something with the returned Parse.Object values
+            // console.log(JSON.stringify(JSON.parse(results)));
+            console.log("Date of the event is " + (JSON.stringify(results[0])));
+
+            res.render('upcoming', {allEvents : JSON.parse(JSON.stringify(results))} );
+            // res.send(results);
+        },
+        error: function(error) {
+            console.log("Error: " + error.code + " " + error.message);
+        }
+    });
+});
+
 app.get('/contact' , (req, res)=>{
    res.render('contact');
 });
@@ -252,12 +275,12 @@ app.get('/contact' , (req, res)=>{
 app.get('/about' , (req , res)=>{
     res.render('about');
 });
-app.use('/newevent' , (req , res)=>{
+app.get('/newevent' , (req , res)=>{
 
    res.render('createEvent');
 });
 
-app.use('/logout',(req , res)=>{
+app.get('/logout',(req , res)=>{
    req.logout();
     res.redirect('/')
 });
@@ -269,10 +292,6 @@ app.use('/',(req, res)=> {
         res.sendFile(__dirname + "/public/html/index.html");
     }
 });
-
-
-
-
 
 // app.use((req , res)=>{res.send("Fail")});
 

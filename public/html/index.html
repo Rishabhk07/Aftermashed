@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
@@ -13,11 +13,25 @@
     <!--<link rel="stylesheet" href="../mdl/icon?family=Material+Icons">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../mdl/material.min.css">
+    <link rel="stylesheet" href="./mdl/material.min.css">
     <link rel="stylesheet" href="../css/custom.css">
-    <script defer src="../mdl/material.min.js"></script>
-    <script src="../js/jquery-3.1.1.js" ></script>
-    <script src="../js/custom.js"></script>
+    <script defer src="./mdl/material.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="../js/index.js"></script>
+    <!--Google Analyics-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-88940377-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 </head>
 <body>
 
@@ -35,6 +49,7 @@
                 <nav class="mdl-navigation">
                     <a class="mdl-navigation__link" href="/mashed">Mashup</a>
                     <a class="mdl-navigation__link" href="/rating">View Ratings</a>
+                    <a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>
                     <!--<a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>-->
                     <!--<a class="mdl-navigation__link" href="/new">New Event</a>-->
                     <a class="mdl-navigation__link" href="/about">About</a>
@@ -50,6 +65,7 @@
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="/mashed">Mashup</a>
             <a class="mdl-navigation__link" href="/rating">View Ratings</a>
+            <a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>
             <!--<a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>-->
             <!--<a class="mdl-navigation__link" href="/new">New Event</a>-->
             <a class="mdl-navigation__link" href="/about">About</a>
@@ -62,7 +78,7 @@
         <div class="container">
             <p class="what left">What we do ?</p>
             <p class="right desc">Just after any event in our college, you either "like" it or "dislike" it  <br>
-            well you can do the same here anonymously. Click Start Mashing to Login</p>
+            well you can do the same here anonymously. Click <span class="start-mash"><a href="#">Start Mashing</a></span> to Login</p>
         </div>
     </div>
 
@@ -83,7 +99,7 @@
             <button class="mdl-button mdl-js-button mdl-button--raised mash">Start Mashing</button>
         </div>
 
-        <div class="center facebook">
+        <div class="center facebook" hidden>
             <a href="/auth/facebook"><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--blue-600">Login with Facebook</button></a>
         </div>
 

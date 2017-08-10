@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
       xmlns="http://www.w3.org/1999/html">
 <head>
@@ -17,9 +17,23 @@
     <link rel="stylesheet" href="./mdl/material.min.css">
     <link rel="stylesheet" href="./css/mashed.css">
     <script defer src="./mdl/material.min.js"></script>
-    <script src="./js/jquery-3.1.1.js" ></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
     <script src="./js/custom.js"></script>
-    <script src="./js/mashed.js"></script>
+
+    <!--Google Analyics-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-88940377-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 
 </head>
 <body>
@@ -28,7 +42,7 @@
         <div class="mdl-layout-icon"></div>
         <div class="mdl-layout__header-row">
             <span class="mdl-layout__title">
-              Mashed
+              After Mashed
             </span>
             <span class="dp">
                 <img src="" class="profile" id="profile-pic">
@@ -41,7 +55,7 @@
                 <nav class="mdl-navigation">
                     <a class="mdl-navigation__link" href="/mashed">Mashup</a>
                     <a class="mdl-navigation__link" href="/rating">View Ratings</a>
-                    <!--<a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>-->
+                    <a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>
                     <!--<a class="mdl-navigation__link" href="/newevent">New Event</a>-->
                     <a class="mdl-navigation__link" href="/about">About</a>
                     <a class="mdl-navigation__link" href="/contact">Contact Us</a>
@@ -61,7 +75,7 @@
             <img src="" class="profile" id="dp">
             <a class="mdl-navigation__link" href="/mashed">Mashup</a>
             <a class="mdl-navigation__link" href="/rating">View Ratings</a>
-            <!--<a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>-->
+            <a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>
             <!--<a class="mdl-navigation__link" href="/new">New Event</a>-->
             <a class="mdl-navigation__link" href="/about">About</a>
             <a class="mdl-navigation__link" href="/contact">Contact Us</a>
@@ -105,7 +119,8 @@
                     {{#if description}}
                     {{description}}
                     {{else}}
-                        Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab, you can also suggest events to add at <a href="mailto:rishabhkhanna777@gmail.com?Subject=After%20Mash%20Contact" target="_top">aftermashed@gmail.com</a>
+                        Yay you have voted for all our current events, come back soon for more events till then view events ratings in View Ratings Tab, you can also suggest events to add at
+                        <a href="mailto:aftermashed@gmail.com?Subject=After%20Mash%20Contact" target="_top">aftermashed@gmail.com</a>
                     {{/if}}
 
 
@@ -113,11 +128,27 @@
             {{#if fb_url}}
                 <div class="mdl-card__actions">
 
-
                     <a href="{{fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
 
-          
                 </div>
+            {{/if}}
+            <!--mobile  dislike button -->
+            {{#if description}}
+                        <div class="mdl-card__actions mdl-card--border  mobile" hidden>
+                                                <span class="mobile-dislike">
+                                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                             <span class="material-icons mdl-chip__contact mdl-color--accent mdl-color-text--white">thumb_down</span>
+                                             Dislike
+                                         </a>
+                                     </span>
+                            <!--mobile like button-->
+                            <span class="mobile-like">
+                                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                             <span class="material-icons mdl-chip__contact mdl-color--indigo mdl-color-text--white">thumb_up</span>
+                                             Like
+                                         </a>
+                                     </span>
+                   </div>
             {{/if}}
             </div>
         </div>
@@ -138,7 +169,6 @@
 </div>
 
     </div>
-
 
 </body>
 </html>

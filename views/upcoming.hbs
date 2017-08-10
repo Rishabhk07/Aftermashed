@@ -1,27 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About</title>
+    <title>Upcoming Events</title>
+
     <!--favicon icon added-->
     <link rel="icon" type="image/png" href="../assets/icon/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="../assets/icon/favicon-16x16.png" sizes="16x16" />
     <link rel="shortcut icon" type="image/png" href="../assets/icon/favicon-32x32.png" sizes="32x32" />
     <link rel="shortcut icon" type="image/png" href="../assets/icon/favicon-16x16.png" sizes="16x16" />
-    <!--styles-->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./mdl/material.min.css">
-    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/upcoming.css">
     <script defer src="./mdl/material.min.js"></script>
     <script
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="./js/custom.js"></script>
-    <script src="./js/mashed.js"></script>
+
     <!--Google Analyics-->
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -33,8 +34,10 @@
         ga('send', 'pageview');
 
     </script>
+
 </head>
-<body>
+<body class="preload">
+
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout-icon"></div>
@@ -54,7 +57,7 @@
                     <a class="mdl-navigation__link" href="/mashed">Mashup</a>
                     <a class="mdl-navigation__link" href="/rating">View Ratings</a>
                     <a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>
-                    <!--<a class="mdl-navigation__link" href="/newevent">New Event</a>-->
+                    <!--<a class="mdl-navigation__link" href="/new">New Event</a>-->
                     <a class="mdl-navigation__link" href="/about">About</a>
                     <a class="mdl-navigation__link" href="/contact">Contact Us</a>
                     <div class="mdl-layout-spacer"></div>
@@ -63,6 +66,9 @@
         </div>
 
     </header>
+
+
+
     <div class="mdl-layout__drawer ">
         <span class="mdl-layout__title">
 
@@ -72,29 +78,43 @@
             <a class="mdl-navigation__link" href="/mashed">Mashup</a>
             <a class="mdl-navigation__link" href="/rating">View Ratings</a>
             <a class="mdl-navigation__link" href="/upcoming">Upcoming Events</a>
+            <!--<a class="mdl-navigation__link" href="/new">New Event</a>-->
             <a class="mdl-navigation__link" href="/about">About</a>
             <a class="mdl-navigation__link" href="/contact">Contact Us</a>
             <a class="mdl-navigation__link logout" href="/logout">Logout</a>
         </nav>
     </div>
 
-    <!--content of about page start-->
+    <div class="con">
 
-    <div class="mdl-grid mdl-grid--no-spacing">
-            <div class="container">
-                <p class="what mdl-cell mdl-cell--12-col">About After Mashed !!</p>
-                <p class="small mdl-cell mdl-cell--12-col">The Motivation behind this medium is that we attend many events in our college some organised by different hubs, some by our college but after that event we cannot express how it went,
-                    Hence we provide a medium to "Like" or "Dislike" all the events happening in college.
-                Apart from our College events, After Mashed has some constant College places for you to rate like Jiit Hubs, Hostel .you can also suggest more events to add on our email
-                    <a href="mailto:aftermashed@gmail.com?Subject=After%20Mash%20Contact" target="_top">aftermashed@gmail.com</a>
-                </p>
-                <p class="small">
-                    Just email us the Event Name, and its facebook page and it will be added and will be live to rate just after the day of the event. all upcoming events can be viewed under upcoming tab .
-                </p>
+        {{#each allEvents}}
+            <div class="set-width">
+                <div class="mdl-card card flex mdl-shadow--4dp" data-id = {{objectId}} >
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">{{Name}}</h2>
+                    </div>
+                    <div class="mdl-card__media">
+                        <img src="{{ImageUrl}}" class="event-img">
+                    </div>
 
+                    <div class="mdl-card__supporting-text">
+                        {{description}}
+                    </div>
+
+                    {{#if fb_url}}
+                        <div class="mdl-card__actions">
+
+                            <a href="{{fb_url}}" height = "150px" width="150px" target="_blank" id="url">FB Page</a>
+
+                        </div>
+                    {{/if}}
+                </div>
             </div>
-        </div>
+        {{/each}}
+    </div>
 </div>
+
+
 
 </body>
 </html>

@@ -1,21 +1,24 @@
 /**
+ * Created by rishabhkhanna on 24/01/17.
+ */
+/**
  * Created by rishabhkhanna on 15/11/16.
  */
 
 
 var canVote = true;
 login_check = function(){
-  $.post('/login' , {} , function (ans) {
-      if(ans == "Bie"){
-          $('#profile-pic').hide();
-          $('#dp').hide();
-          $('.logout').hide();
-      }else {
-          $('#profile-pic').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
-          $('#dp').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
-          $('.logout').show();
-      }
-  })
+    $.post('/login' , {} , function (ans) {
+        if(ans == "Bie"){
+            $('#profile-pic').hide();
+            $('#dp').hide();
+            $('.logout').hide();
+        }else {
+            $('#profile-pic').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
+            $('#dp').attr("src", 'https://graph.facebook.com/' + ans.ObjectId + '/picture?height=250&width=250');
+            $('.logout').show();
+        }
+    })
 
 };
 
@@ -105,7 +108,7 @@ $(function () {
                 vote: 0,
                 objectId: card.data('id')
             }, function (object) {
-                // console.log(object);
+                console.log(object);
                 dislike.prop("disabled", false);
                 console.log(object.objectId);
                 add_data(object);
@@ -118,65 +121,6 @@ $(function () {
         facebook.removeAttr("hidden");
         facebook.show(100);
     });
-
-    function likeEvent() {
-        if(canVote == true){
-            like.prop("disabled" , true);
-            snackbar(1);
-            card.hide(100);
-            $.post('/vote' , {
-                vote : 1,
-                objectId: card.data('id')
-
-            }, function (object) {
-                // console.log(object);
-                like.prop("disabled" , false);
-                card.data('id' , object.objectId);
-                console.log(object.objectId);
-                add_data(object);
-
-
-            })
-        }
-    }
-
-    function dislikeEvent() {
-        if(canVote == true) {
-            dislike.prop("disabled", true);
-            card.hide(100);
-            snackbar(0);
-            $.post('/vote', {
-                vote: 0,
-                objectId: card.data('id')
-            }, function (object) {
-                console.log(object);
-                dislike.prop("disabled", false);
-                console.log(object.objectId);
-                add_data(object);
-
-            })
-        }
-    }
-
-    var width = $(window).width();
-    if(width < 450) {
-        $('.mobile').removeAttr("hidden");
-
-        like.hide();
-        dislike.hide();
-
-        $('.mobile-like').click(function () {
-            likeEvent();
-        });
-        $('.mobile-dislike').click(function () {
-            dislikeEvent();
-        })
-
-    }
-
-
-
-
 
 });
 
