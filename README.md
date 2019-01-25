@@ -1,9 +1,9 @@
 # AfterMashed
 A website where you can "Like" or "Dislike" any event happening in Colleges.
-website is live at - [aftermashed.com](http://aftermashed.com)
+website was live at - [aftermashed.com](http://aftermashed.com) but it is not used hence not available at this address
 
 ## Motivation
-We attend many events in any College, 
+I attend many events in any College, 
 workshops organised by different College Hubs but we never get to express how it went weather people "Liked" or "Disliked" these events(anonymously).Hence to fill this gap [AfterMashed](aftermashed.com) was born
 
 ## Technologies Used
